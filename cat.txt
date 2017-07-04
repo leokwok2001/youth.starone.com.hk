@@ -1,1 +1,3 @@
 this is cat
+this is black color
+it name is kitty
