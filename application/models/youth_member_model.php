@@ -47,9 +47,9 @@ class Youth_member_model extends CI_Model {
             'createdate' => date("Y-m-d")
                 //'createdate' => $this->input->post('createdate')
         );
+        echo $photo1;
 
-
-        return $this->db->insert('youth_member', $data);
+    //    return $this->db->insert('youth_member', $data);
     }
 
     public function get_member_uplevel_date($member_id = FALSE) {
