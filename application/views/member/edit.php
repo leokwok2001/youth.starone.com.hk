@@ -47,7 +47,9 @@ $segments4 = array('member_level', 'levelup');
 $segments5 = array('member_level', 'view');
 
 echo validation_errors();
-echo form_open('member/update');
+//echo form_open('member/update');
+
+echo form_open_multipart('member/update');
 ?>
 <table width="946" border ="1" >
     <tr>
@@ -60,6 +62,9 @@ echo form_open('member/update');
                     <td       <div class="form-group">
                                 <div >
                                     <img src=" <?php echo $member['photo1']; ?>" alt="face"  width="186" height="267">
+
+                                     <input type="file" name="userfile" id="userfile"   size="50" />
+
                                 </div>
                             </div>
                     </td>

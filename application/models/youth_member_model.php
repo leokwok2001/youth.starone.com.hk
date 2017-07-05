@@ -47,9 +47,9 @@ class Youth_member_model extends CI_Model {
             'createdate' => date("Y-m-d")
                 //'createdate' => $this->input->post('createdate')
         );
-        echo $photo1;
+        //echo $photo1;
 
-    //    return $this->db->insert('youth_member', $data);
+       return $this->db->insert('youth_member', $data);
     }
 
     public function get_member_uplevel_date($member_id = FALSE) {
@@ -158,7 +158,7 @@ class Youth_member_model extends CI_Model {
         return $query->row_array();
     }
 
-    public function update_member() {
+    public function update_member($photo1) {
 
         $member_id = $this->input->post('member_id');
 
@@ -194,6 +194,7 @@ class Youth_member_model extends CI_Model {
             'skill14' => $this->input->post('skill14'),
             'cert' => $this->input->post('cert'),
             'baptism' => $this->input->post('baptism'),
+            'photo1' =>$photo1,
             'goodper' => $this->input->post('goodper')
                 // 'createdate' => $this->input->post('createdate')
         );

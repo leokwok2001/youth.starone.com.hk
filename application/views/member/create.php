@@ -36,7 +36,9 @@ if ($user_right == 1 or $user_right == 2) {
 }
 ?>
 <?php echo validation_errors(); ?>
-<?php echo form_open('member/create') ?>
+<?php
+echo form_open_multipart('member/create');
+//echo form_open('member/create') ?>
 <?php $segments2 = array('member', 'view'); ?>
 <table width="900" border="0">
 
@@ -44,13 +46,9 @@ if ($user_right == 1 or $user_right == 2) {
 
     <tr>
         <td width="179" bgcolor="#0000FF" ><font  size="+1" color="white">相片</font></td>
-        <td               <div class="form-group">
-
-                    <div >
-                        <input type="file" name="userfile"  size="20"  class="form-control" />
-                    </div>
-                </div></td>
-
+        <td>
+         <input type="file" name="userfile" id="userfile" size="50" />
+        </td>
     </tr>
 
     <tr>

@@ -98,7 +98,7 @@ class Member extends CI_Controller {
             $this->load->view('member/create');
             $this->load->view('templates/footer');
         } else {
-
+        //    echo $_FILES['userfile']['name'];
             if (!empty($_FILES['userfile']['name'])) {
                         $aa = $this->upload_files();
                     } else {
@@ -135,8 +135,13 @@ class Member extends CI_Controller {
             redirect('/user/login/', 'refresh');
         }
 
+        if (!empty($_FILES['userfile']['name'])) {
+                    $aa = $this->upload_files();
+                } else {
+                    $aa = "";
+                }
 
-        $this->youth_member_model->update_member();
+        $this->youth_member_model->update_member($aa);
         redirect('/member/view/', 'refresh');
     }
 
