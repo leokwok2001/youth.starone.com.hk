@@ -64,7 +64,7 @@ class Member extends CI_Controller {
             redirect('/user/login/', 'refresh');
         }
         $this->db->delete('youth_member_honor', array('member_id' => $member_id, 'honor_code' => $honor_code));
-        //redirect('/member/view/', 'refresh');	
+        //redirect('/member/view/', 'refresh');
         redirect('/member/edit/' . $member_id, 'refresh');
     }
 
@@ -98,9 +98,34 @@ class Member extends CI_Controller {
             $this->load->view('member/create');
             $this->load->view('templates/footer');
         } else {
-            $this->youth_member_model->set_member();
+
+            if (!empty($_FILES['userfile']['name'])) {
+                        $aa = $this->upload_files();
+                    } else {
+                        $aa = "";
+                    }
+
+            $this->youth_member_model->set_member($aa);
             redirect('/member/view/', 'refresh');
         }
+    }
+
+    private function upload_files() {
+
+        $config['upload_path'] = 'uploads';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['overwrite'] = 1;
+        $config['file_name'] = uniqid('youth', true) . '.jpg';
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload()) {
+            $error = array('error' => $this->upload->display_errors());
+        } else {
+            $data = array('upload_data' => $this->upload->data());
+        }
+
+        return URL . $config['upload_path'] . "/" . str_replace(".jpg", "_.jpg", $config['file_name']);
     }
 
     public function update() {

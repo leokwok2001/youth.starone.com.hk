@@ -6,8 +6,10 @@ class Youth_member_model extends CI_Model {
         $this->load->database();
     }
 
-    public function set_member() {
+    public function set_member($photo1) {
         $this->load->helper('url');
+
+
         $data = array(
             'english_name' => $this->input->post('english_name'),
             'chinese_name' => $this->input->post('chinese_name'),
@@ -41,9 +43,12 @@ class Youth_member_model extends CI_Model {
             'cert' => $this->input->post('cert'),
             'baptism' => $this->input->post('baptism'),
             'goodper' => $this->input->post('goodper'),
+            'photo1' => $photo1,
             'createdate' => date("Y-m-d")
                 //'createdate' => $this->input->post('createdate')
         );
+
+
         return $this->db->insert('youth_member', $data);
     }
 

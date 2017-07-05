@@ -53,6 +53,19 @@ echo form_open('member/update');
     <tr>
         <td>
             <table width="380" border="0">
+
+
+                <tr>
+                    <td width="179" bgcolor="#0000FF" ><font  size="+1" color="white">相片</font></td>
+                    <td       <div class="form-group">
+                                <div >
+                                    <img src=" <?php echo $member['photo1']; ?>" alt="face"  width="186" height="267">
+                                </div>
+                            </div>
+                    </td>
+                </tr>
+
+
                 <tr>
                     <td width="178" bgcolor="#0000FF" ><font size="+1" color="white">id</font></td>
                     <td width="380"><input type="text" name="member_id"  readonly="readonly" id="member_id"  value =<?php echo '"' . $member['member_id'] . '"' ?>/></td>
@@ -71,8 +84,8 @@ echo form_open('member/update');
                     <td><input type="text" name="date_of_birth" id="datepicker1"  value =<?php echo '"' . $member['date_of_birth'] . '"' ?>/>
                         (*) </td>
 
-                    
-                    
+
+
                 </tr>
                 <tr>
                     <td bgcolor="#0000FF" ><font size="+1" color="white">性別</font></td>
@@ -148,7 +161,7 @@ echo form_open('member/update');
                                 echo "<option value=\"" . $club_code . "\" > " . $club_code . "</option> \n";
                             }
                             ?>
-                        </select> 
+                        </select>
 
 
                         </select>
@@ -168,19 +181,19 @@ echo form_open('member/update');
                                 echo "<option value=\"" . $cat . "\">" . $cat . "</option> \n";
                             }
                             ?>
-                        </select>  
+                        </select>
                     </td>
                 </tr>
 
                 <tr>
                     <td bgcolor="#FF6600" ><font size="+1" color="black">職級(LEVEL)</font></td>
-                    <td>   
+                    <td>
 
 
                         <?php
-                        //"準團師", "團師MG", "領袖勳章PLA", "高級領袖勳章APLA" if (in_array("Irix", $os)) {  
+                        //"準團師", "團師MG", "領袖勳章PLA", "高級領袖勳章APLA" if (in_array("Irix", $os)) {
                         if (!in_array($member['level'], $array_level_adult2)) {
-                            ?> 
+                            ?>
                             <select name ="level" id="level" style="background-color:#F60">
                                 <?php
                                 foreach ($array_level as $key => $tmp_level) {
@@ -191,7 +204,7 @@ echo form_open('member/update');
                                     echo " >" . $tmp_level . "</option> \n";
                                 }
                                 ?>
-                            </select>  	
+                            </select>
 
                             <?php
                         } else {
@@ -223,7 +236,7 @@ echo form_open('member/update');
                                 <?php
                                 echo " 至 " . $nextlevel;
                             }
-                            ?>   
+                            ?>
 <?php } ?>
                     </td>
 
@@ -254,71 +267,71 @@ echo form_open('member/update');
 
                 <tr>
                     <td bgcolor="#0000FF" ><font size="+1" color="white">良好表現</font></td>
-                    <td>    
+                    <td>
                         <select name ="goodper" id="goodper">
                             <option value="YES" <?php
                             if ($member['goodper'] == 'YES')
                                 echo 'selected';
-                            ?>>YES</option>  
+                            ?>>YES</option>
                             <option value="NO" <?php
                             if ($member['goodper'] == 'NO')
                                 echo 'selected';
-                            ?>>NO</option>            
+                            ?>>NO</option>
                         </select></td>
-                </tr>  
+                </tr>
 
 
                 <tr>
                     <td bgcolor="#0000FF" ><font size="+1" color="white">浸禮SDA</font></td>
-                    <td>    
+                    <td>
                         <select name ="baptism" id="baptism">
                             <option value="YES" <?php
                             if ($member['baptism'] == 'YES')
                                 echo 'selected';
-                            ?>>YES</option>  
+                            ?>>YES</option>
                             <option value="NO" <?php
                             if ($member['baptism'] == 'NO')
                                 echo 'selected';
-                            ?>>NO</option>            
+                            ?>>NO</option>
                         </select></td>
-                </tr> 
+                </tr>
 
 
                 <tr>
                     <td bgcolor="#0000FF" ><font size="+1" color="white">情況</font></td>
-                    <td>    
+                    <td>
                         <select name ="isactive" id="isactive">
                             <option value="active" <?php
                             if ($member['isactive'] == 'active')
                                 echo 'selected';
-                            ?>>active</option>  
+                            ?>>active</option>
                             <option value="inactive" <?php
                             if ($member['isactive'] == 'inactive')
                                 echo 'selected';
-                            ?>>inactive</option>            
+                            ?>>inactive</option>
                         </select></td>
                 </tr>
 
 
 <!--                <tr>
                     <td bgcolor="#0000FF" ><font size="+1" color="white"> 註冊團師</font></td>
-                    <td>    
+                    <td>
                         <select name ="cert" id="cert">
                             <option value="已註冊" <?php
                             if ($member['cert'] == '已註冊')
                                 echo 'selected';
-                            ?>>已註冊</option>  
+                            ?>>已註冊</option>
                             <option value="未註冊" <?php
                             if ($member['cert'] == '未註冊')
                                 echo 'selected';
-                            ?>>未註冊</option>            
+                            ?>>未註冊</option>
                         </select></td>
                 </tr>   -->
                 <tr>
                     <td bgcolor="#0000FF" ><font size="+1" color="white">註冊日期</font></td>
                     <td><input type="text" name="createdate"  readonly="true" id="createdate" value =<?php echo '"' . $member['createdate'] . '"' ?>/>
                         </td>
-                </tr>  
+                </tr>
                 <tr>
                     <td>&nbsp;</td>
                     <td>
@@ -331,7 +344,7 @@ echo form_open('member/update');
 
             <p><font size="+2" >技能 SKILL</font>
 
-            <table width="380" border="0"> 
+            <table width="380" border="0">
                 <?php
                 foreach ($skillItem as $key => $value) {
                     echo "<tr> \n";
@@ -430,7 +443,7 @@ echo form_open('member/update');
                 升級資料
                 <iframe  src="<?php echo site_url($segments5) . "/" . $member['member_id'] . "/" . $member['level']; ?>"  width="1000" height="750" >
                 </iframe>
-            </td>	
+            </td>
 <?php } ?>
     </tr>
 </table>
@@ -467,10 +480,3 @@ echo form_open('member/update');
         </tr>
 <?php } ?>
 </table>
-
-
-
-
-
-
-

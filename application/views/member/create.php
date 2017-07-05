@@ -39,10 +39,23 @@ if ($user_right == 1 or $user_right == 2) {
 <?php echo form_open('member/create') ?>
 <?php $segments2 = array('member', 'view'); ?>
 <table width="900" border="0">
+
+
+
+    <tr>
+        <td width="179" bgcolor="#0000FF" ><font  size="+1" color="white">相片</font></td>
+        <td               <div class="form-group">
+
+                    <div >
+                        <input type="file" name="userfile"  size="20"  class="form-control" />
+                    </div>
+                </div></td>
+
+    </tr>
+
     <tr>
         <td width="179" bgcolor="#0000FF" ><font  size="+1" color="white">英文名</font></td>
-        <td width="711"><input type="text" name="english_name" id="english_name" placeholder="請輸入英文姓名"  />
-            (*)</td>
+    <td><input type="text" name="english_name" id="english_name"  placeholder="請輸入英文姓名"/></td>
     </tr>
     <tr>
         <td bgcolor="#0000FF" ><font  size="+1" color="white">中文名</font></td>
@@ -116,7 +129,7 @@ if ($user_right == 1 or $user_right == 2) {
                     <option value=<?php echo "\"" . $club_code . "\"" ?>><?php echo $club_code; ?></option>
 
 
-                <?php } ?>     
+                <?php } ?>
 
             </select>
 
@@ -142,7 +155,7 @@ if ($user_right == 1 or $user_right == 2) {
 
     <tr>
         <td bgcolor="#0000FF" ><font size="+1" color="white">職級(LEVEL)</font></td>
-        <td>   
+        <td>
 
             <select name ="level" id="level">
                 <?php
@@ -161,12 +174,12 @@ if ($user_right == 1 or $user_right == 2) {
         <td>
 
 
-            <select name ="position" id="position">    
+            <select name ="position" id="position">
                 <?php
                 foreach ($array_position as $key => $tmp_position) {
                     echo "<option value=\"" . $tmp_position . "\">" . $tmp_position . "</option> \n";
                 }
-                ?>  
+                ?>
             </select>
 
         </td>
@@ -177,31 +190,31 @@ if ($user_right == 1 or $user_right == 2) {
 
     <tr>
         <td bgcolor="#0000FF" ><font size="+1" color="white">良好表現</font></td>
-        <td>    
+        <td>
             <select name ="goodper" id="goodper">
-                <option value="NO">NO</option> 
-                <option value="YES">YES</option>  
+                <option value="NO">NO</option>
+                <option value="YES">YES</option>
 
             </select>
             <input   type="hidden"  name="isactive" id="isactive" value='active'/>
 
         </td>
-    </tr>  
+    </tr>
     <tr>
         <td bgcolor="#0000FF" ><font size="+1" color="white">浸禮SDA</font></td>
-        <td>    
+        <td>
             <select name ="baptism" id="baptism">
-                <option value="NO">NO</option>    
-                <option value="YES">YES</option>  
+                <option value="NO">NO</option>
+                <option value="YES">YES</option>
 
             </select></td>
-    </tr> 
+    </tr>
 <!--    <tr>
         <td bgcolor="#0000FF" ><font size="+1" color="white"> 註冊團師</font></td>
-        <td>    
+        <td>
             <select name ="cert" id="cert">
-                <option value="未註冊">未註冊</option> 
-                <option value="已註冊">已註冊</option>  
+                <option value="未註冊">未註冊</option>
+                <option value="已註冊">已註冊</option>
             </select></td>
     </tr>  -->
     <tr>
@@ -210,7 +223,7 @@ if ($user_right == 1 or $user_right == 2) {
         <td><input type="text" name="createdate" id="createdate"  value ="<?php echo date("Y-m-d") ;?> "  readonly="true"  />
           </td>
 
-    </tr>  
+    </tr>
 
 
     <tr>
