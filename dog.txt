@@ -6,4 +6,11 @@ this dog can singing.
 i am master
 add apple -by Rev2����
 add banana -by master
+<<<<<<< HEAD
 aaaa
+=======
+
+
+aaaaaaaaaaaaaa
+    
+>>>>>>> Rev2
