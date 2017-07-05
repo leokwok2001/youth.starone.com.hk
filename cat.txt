@@ -1,8 +1,2 @@
 this is cat
 this is black color
-<<<<<<< HEAD
-it name is kittyaaa
-=======
-it name is kitty
->>>>>>> Rev2
-aaa
