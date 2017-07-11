@@ -12,7 +12,7 @@ $array_level_common = array("新會員");
 
 
 <?php echo form_open('member/view'); ?>
-<table width="600" border="0">
+<table width="600" border="0" >
     <tr>
         <td width="60" bgcolor="#3300FF"><font color="white">姓名(英文)</font></td>
         <td><input type="text" name="search_english_name"  id="search_english_name" /></td>
@@ -82,12 +82,12 @@ $array_level_common = array("新會員");
         <td>
 
 
-            <select name ="search_position" id="search_position">    
+            <select name ="search_position" id="search_position">
                 <?php
                 foreach ($array_position as $key => $tmp_position) {
                     echo "<option value=\"" . $tmp_position . "\">" . $tmp_position . "</option> \n";
                 }
-                ?>  
+                ?>
             </select>
 
 <!--            <input type="text" name="search_position" id="search_position" />-->
@@ -134,18 +134,18 @@ $array_level_common = array("新會員");
         <td width="60" bgcolor="#3300FF"><font color="white">SKILL</font></td>
         <td>
 
-            <select name ="search_skill" id="search_skill" > 
-                <option value=""></option> 
-                <option value="山藝一級">山藝一級</option> 
-                <option value="山藝二級">山藝二級</option> 
-                <option value="山藝三級">山藝三級</option>   
+            <select name ="search_skill" id="search_skill" >
+                <option value=""></option>
+                <option value="山藝一級">山藝一級</option>
+                <option value="山藝二級">山藝二級</option>
+                <option value="山藝三級">山藝三級</option>
                 <option value="山藝教練一級">山藝教練一級</option>
                 <option value="山藝教練二級">山藝教練二級</option>
-                <option value="急救證書AFA">急救證書AFA</option> 
-                <option value="急救入門+心肺復甦IFA">急救入門+心肺復甦IFA</option> 
-                <option value="康樂沿繩下降證書">康樂沿繩下降證書</option> 
-                <option value="歷奇活動導師證書">歷奇活動導師證書</option> 
-            </select> 
+                <option value="急救證書AFA">急救證書AFA</option>
+                <option value="急救入門+心肺復甦IFA">急救入門+心肺復甦IFA</option>
+                <option value="康樂沿繩下降證書">康樂沿繩下降證書</option>
+                <option value="歷奇活動導師證書">歷奇活動導師證書</option>
+            </select>
 
 
 <!--<input type="text" name="search_skill" id="search_skill" /> -->
@@ -173,20 +173,23 @@ $array_level_common = array("新會員");
 <font size="+2" >會員資料</font> -<?php echo "<a href='" . site_url($segments) . "'>新增會員</a>"; ?>
 <br>
 <br>
-<table width="1007"  border="1" >
+<table  id="dataTable" class="table table-bordered table-striped nowrap"   width="100%">
+    <thead >
     <tr>
         <td width="96" bgcolor="#0000FF"><font color="white">英文名</font></td>
         <td width="93" bgcolor="#0000FF"><font color="white">中文名</font></td>
         <td width="92" bgcolor="#0000FF"><font color="white">出生日期</font></td>
         <td width="62" bgcolor="#0000FF"><font color="white">性別</font></td>
         <td width="80" bgcolor="#0000FF"><font color="white">所屬支隊</font></td>
-        <td width="80" bgcolor="#0000FF"><font color="white">所屬團</font></td>       
+        <td width="80" bgcolor="#0000FF"><font color="white">所屬團</font></td>
         <td width="51" bgcolor="#0000FF"><font color="white">身份證</font></td>
         <td width="51" bgcolor="#0000FF"><font color="white">職級</font></td>
         <td width="57" bgcolor="#0000FF"><font color="white">崗位</font></td>
         <td width="54" bgcolor="#0000FF"><font color="white">情況</font></td>
         <td width="110" bgcolor="#0000FF">&nbsp;</td>
     </tr>
+</thead>
+ </tbody>
     <?php
     $segments = array('member', 'delete');
     ?>
@@ -202,10 +205,10 @@ $array_level_common = array("新會員");
             <td><?php echo $member_item['level'] ?></td>
             <td><?php echo $member_item['position'] ?></td>
             <td><?php echo $member_item['isactive'] ?></td>
-            <td>&nbsp; 
-                <?php echo "<a href='" . site_url($segments2) . "/" . $member_item['member_id'] . "'> 修改 </a>"; ?> &nbsp;&nbsp;      
+            <td>&nbsp;
+                <?php echo "<a href='" . site_url($segments2) . "/" . $member_item['member_id'] . "'> 修改 </a>"; ?> &nbsp;&nbsp;
                 <?php if ($user_right == 1) { ?>
-                    | &nbsp;&nbsp; 
+                    | &nbsp;&nbsp;
 
 
 
@@ -220,8 +223,19 @@ $array_level_common = array("新會員");
 
         </tr>
     <?php endforeach ?>
+     </tbody>
 </table>
 
 <br>
 <br>
 <br>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#dataTable').DataTable({
+            "scrollY": 350,
+            "scrollCollapse": true,
+            "scrollX": true
+        });
+        });
+</script>

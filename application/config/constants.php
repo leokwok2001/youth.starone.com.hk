@@ -37,6 +37,8 @@ define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 define('URL','http://youth.starone.com.hk/');
-
+define('IMG',URL.'assets/img/');
+define('CSS',URL.'assets/css/');
+define('JS',URL.'assets/js/');
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

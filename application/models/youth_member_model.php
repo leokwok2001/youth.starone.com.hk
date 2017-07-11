@@ -45,11 +45,10 @@ class Youth_member_model extends CI_Model {
             'goodper' => $this->input->post('goodper'),
             'photo1' => $photo1,
             'createdate' => date("Y-m-d")
-                //'createdate' => $this->input->post('createdate')
         );
-        //echo $photo1;
 
-       return $this->db->insert('youth_member', $data);
+
+      return $this->db->insert('youth_member', $data);
     }
 
     public function get_member_uplevel_date($member_id = FALSE) {
@@ -162,7 +161,7 @@ class Youth_member_model extends CI_Model {
 
         $member_id = $this->input->post('member_id');
 
-        $data = array(
+        $data1 = array(
             'english_name' => $this->input->post('english_name'),
             'chinese_name' => $this->input->post('chinese_name'),
             'date_of_birth' => $this->input->post('date_of_birth'),
@@ -194,11 +193,15 @@ class Youth_member_model extends CI_Model {
             'skill14' => $this->input->post('skill14'),
             'cert' => $this->input->post('cert'),
             'baptism' => $this->input->post('baptism'),
-            'photo1' =>$photo1,
             'goodper' => $this->input->post('goodper')
-                // 'createdate' => $this->input->post('createdate')
         );
 
+        if  (!empty($photo1) ) {
+            $data2 = array('photo1' => $photo1);
+            $data= array_merge($data1,$data2);
+        } else {
+               $data=$data1;
+        }
 
         $this->db->where('member_id', $member_id);
         $this->db->update('youth_member', $data);

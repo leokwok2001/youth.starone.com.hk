@@ -12,49 +12,41 @@ class Honor extends CI_Controller {
 	}
 
 	public function view($member_id=FALSE,$offset=FALSE)
-	{		
+	{
 			if ($this->session->userdata('islogin')== FALSE) {
 				      redirect('/user/login/', 'refresh');
 			}
 			if ($member_id!=FALSE)
 			{$data['id'] = $member_id;}
-			if ($this->input->post('member_id2')!=FALSE) 
+			if ($this->input->post('member_id2')!=FALSE)
 			{$data['id'] = $this->input->post('member_id2');}
-
 
 			$data['title'] = 'SDA title';
 			$this->load->helper('form');
 			$this->load->library('form_validation');
-		
-			
-			if ($this->uri->segment(4)!=FALSE)
-		{
-			$offset = $this->uri->segment(4);
-		}else{
-			$offset = 0;
-		}
-		
 
-		
-			$data['honor'] = $this->youth_honor_model->get_honor($offset); 
-			
-			$config2['base_url']='http://youth.starone.com.hk/index.php/honor/view/'.$data['id'] ;
+			if ($this->uri->segment(4)!=FALSE)
+			{
+				$offset = $this->uri->segment(4);
+			}else{
+				$offset = 0;
+			}
+
+			$data['honor'] = $this->youth_honor_model->get_honor($offset);
+			//define('URL','http://youth.starone.com.hk/');
+			$config2['base_url']=URL.'index.php/honor/view/'.$data['id'] ;
 			$config2['total_rows']= $this->db->get('youth_honor')->num_rows();
-			
-			//count($data['honor']);
-			
+
 			$config2['per_page']=20;
 			$config2['num_links']=20;
 			$config2['uri_segment'] = 4;
 			$config2['full_tag_open'] ='<div id="pagination">';
 			$config2['full_tag_close'] ='</div>';
 			$this->pagination->initialize($config2);
-
- 
 			$this->load->view('honor/view',$data);
-	
-	}	
-	
+
+	}
+
 	public function pickhonor()
 	{
 	 	if ($this->session->userdata('islogin')== FALSE) {
@@ -66,7 +58,4 @@ class Honor extends CI_Controller {
     }
 
 
-
-
-	
 }
