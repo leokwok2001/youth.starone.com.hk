@@ -173,7 +173,10 @@ $array_level_common = array("新會員");
 <font size="+2" >會員資料</font> -<?php echo "<a href='" . site_url($segments) . "'>新增會員</a>"; ?>
 <br>
 <br>
-<table  id="dataTable" class="table table-bordered table-striped nowrap"   width="100%">
+
+
+
+<table  id="dataTable" class="display" cellspacing="0" width="100%"   >
     <thead >
     <tr>
         <td width="96" bgcolor="#0000FF"><font color="white">英文名</font></td>
@@ -189,7 +192,7 @@ $array_level_common = array("新會員");
         <td width="110" bgcolor="#0000FF">&nbsp;</td>
     </tr>
 </thead>
- </tbody>
+ <tbody>
     <?php
     $segments = array('member', 'delete');
     ?>

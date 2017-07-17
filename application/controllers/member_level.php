@@ -8,6 +8,7 @@ class Member_level extends CI_Controller {
         $this->load->model('youth_member_model');
         $this->load->model('youth_member_level_model');
         $this->load->model('youth_member_level_det_model');
+
         $this->load->helper('url');
         $this->load->helper('html');
     }
@@ -32,7 +33,13 @@ class Member_level extends CI_Controller {
         }
 
 
+
+
+
+
         $this->load->helper('form');
+// auto check the member level update information 
+        $this->youth_level_model->push_members_level($member_id,$clonelevel);
         $data['member_level'] = $this->youth_member_level_model->get_member_level($member_id, $clonelevel);
         $data['member_date'] = $this->youth_member_model->get_member_uplevel_date($member_id);
         $data['level'] = $clonelevel;

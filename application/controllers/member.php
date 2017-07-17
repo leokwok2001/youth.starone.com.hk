@@ -7,7 +7,7 @@ class Member extends CI_Controller {
 
         $this->load->model('youth_member_model');
         $this->load->model('youth_member_honor_model');
-
+        $this->load->model('youth_level_model');
         $this->load->helper('url');
         $this->load->helper('html');
     }
@@ -33,12 +33,21 @@ class Member extends CI_Controller {
             show_404();
         }
 
-        $data['title'] = 'SDA title';
+        $data['title'] = TITLE;
 
         $this->load->view('templates/header', $data);
         $this->load->view('member/edit', $data);
+
+
+
+
         $this->load->view('templates/footer');
+
     }
+
+
+
+
 
     public function view() {
 
@@ -53,7 +62,7 @@ class Member extends CI_Controller {
         }
 
         $data['member'] = $this->youth_member_model->get_member();
-        $data['title'] = 'SDA title';
+        $data['title'] = TITLE;
         $this->load->view('templates/header', $data);  // header page
         $this->load->view('member/view', $data);
         $this->load->view('templates/footer');  // footer page
@@ -78,7 +87,7 @@ class Member extends CI_Controller {
     }
 
     public function create() {
-        $data['title'] = 'SDA title';
+        $data['title'] = TITLE;
         $this->load->helper('form');
         $this->load->library('form_validation');
 

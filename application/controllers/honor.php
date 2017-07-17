@@ -21,7 +21,7 @@ class Honor extends CI_Controller {
 			if ($this->input->post('member_id2')!=FALSE)
 			{$data['id'] = $this->input->post('member_id2');}
 
-			$data['title'] = 'SDA title';
+			$data['title'] = TITLE;
 			$this->load->helper('form');
 			$this->load->library('form_validation');
 

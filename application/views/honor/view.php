@@ -83,7 +83,7 @@
 			<td width="180" bgcolor="#3300FF"><font color="white">少/幼年團</font></td>
 			<td width="50" bgcolor="#3300FF"><font color="white">種類(中文)</font></td>
 			<td width="200" bgcolor="#3300FF"><font color="white">種類(英文)</font></td>
-			<td   hidden="hidden"  width="100" bgcolor="#3300FF"><font color="white">榮譽証編號</font></td>
+			 <td   style= "display:none"; ><font color="white">榮譽証編號</font></td> 
 			<td width="300" bgcolor="#3300FF"><font color="white">榮譽証(中文)</font></td>
 			<td width="290" bgcolor="#3300FF"><font color="white">榮譽証(英文)</font></td>
 		</tr>
@@ -94,7 +94,7 @@
 					<td><?php echo '<input type="text" name="cat[]" value="'. $honor_item['cat'].'" />' ?></td>
 					<td><?php echo '<input type="text" name="honor_ccat[]" value="'. $honor_item['honor_ccat'].'" />' ?></td>
 					<td><?php echo '<input type="text" name="honor_ecat[]" value="'. $honor_item['honor_ecat'].'" />' ?></td>
-					<td  > <?php echo '<input type="hidden" name="honor_code[]"  value="'. $honor_item['honor_code'].'" />' ?></td>
+					<td   style= "display:none";> <?php echo '<input type="text" name="honor_code[]"  value="'. $honor_item['honor_code'].'" />' ?></td>
 					<td><?php echo '<input type="text" name="honor_cname[]" value="'. $honor_item['honor_cname'].'" />' ?></td>
 					<td><?php echo '<input type="text" name="honor_ename[]" value="'. $honor_item['honor_ename'].'" />' ?></td>
 				</tr>

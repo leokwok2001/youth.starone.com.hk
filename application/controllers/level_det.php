@@ -13,13 +13,13 @@ class Level_det extends CI_Controller {
 
 	public function create($code=FALSE,$level=FALSE)
 	{
-			$data['title'] = 'SDA title';
+			$data['title'] = TITLE;
 			$data['code'] = $code;
 			$data['level'] =  urldecode($level);
-			
+
 			$this->load->helper('form');
 			$this->load->library('form_validation');
-		
+
 			if ($this->session->userdata('islogin')== FALSE) {
 				      redirect('/user/login/', 'refresh');
 			}
@@ -27,7 +27,7 @@ class Level_det extends CI_Controller {
 			$this->form_validation->set_rules('in_date', '日期', 'required');
 			if ($this->form_validation->run() === FALSE)
 			{
-			$this->load->view('templates/header', $data);	
+			$this->load->view('templates/header', $data);
 			$this->load->view('level_det/create', $data);
 			$this->load->view('templates/footer');
 			}
@@ -37,6 +37,6 @@ class Level_det extends CI_Controller {
 			  redirect('/level/edit/'.$code,'refresh');
 			}
 	}
-	
-			
+
+
 }

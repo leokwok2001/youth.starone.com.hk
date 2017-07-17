@@ -61,7 +61,7 @@ echo form_open_multipart('member/update');
                     <td width="179" bgcolor="#0000FF" ><font  size="+1" color="white">相片</font></td>
                     <td       <div class="form-group">
                                 <div >
-                                    <img src=" <?php echo $member['photo1']; ?>" alt="face"  width="186" height="267">
+                                    <img src=" <?php echo $member['photo1']; ?>" alt="face"  width="100" height="130">
 
                                      <input type="file" name="userfile" id="userfile"   size="50" />
 

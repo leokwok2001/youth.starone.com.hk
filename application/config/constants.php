@@ -40,5 +40,6 @@ define('URL','http://youth.starone.com.hk/');
 define('IMG',URL.'assets/img/');
 define('CSS',URL.'assets/css/');
 define('JS',URL.'assets/js/');
+define('TITLE','HKMC Youth Ministries');
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
